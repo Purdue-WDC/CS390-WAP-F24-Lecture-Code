@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="script.js"></script>
+    <title>Lecture 3: CSS Continued</title>
+</head>
+<body>
+    <style>
+        /* refresher: the # in this selector allows us to select elements with a particular id. */
+        #container {
+            display: flex; /* makes the container element a flexbox */
+            justify-content: space-around; /* spreads out the children horizontally */
+            flex-wrap: wrap; /* allows the children to wrap around to new rows */
+            gap: 8px; /* add spacing between all items */
+        }
+
+        /* refresher: the > in this selector allows us to select children. */
+        /* so, #container > div selects all the div children of our container. */
+        #container > div {
+            padding: 50px;
+            background: yellow;
+            /* font-weight: bold; */
+
+            /* transition is the most basic way to make styles apply to an element over time, rather than immediately (animation). */
+            /* apply the transition to the element itself, rather than the pseudo-class selector, so the style is also removed gradually. */
+            transition: transform 0.3s ease-in-out;
+
+            /* animations are useful for more advanced animations, such that those with multiple steps or multiple changing styles. */
+            animation: some_animation 10s infinite;
+        }
+
+        /* psuedo-class selectors, like :hover go at the end of the selector. */
+        #container > div:hover {
+            transform: scale(1.2); /* when we hover over these elements, this transform style will be applied. */
+        }
+
+        /* keyframes is how we define our own animations. */
+        @keyframes some_animation {
+            /* the percentage is how far through the animation we are, and they are followed by the list of styles that should apply at the point in the animation. */
+            /* note: some styles like color, transforms, etc. will automatically be interpolated between as the animation progresses. */
+            0% {
+                color: red;
+            }
+            33% {
+                color: green;
+            }
+            67% {
+                color: blue;
+            }
+            100% {
+                color: red;
+            }
+        }
+    </style>
+
+    <div id="container">
+        <div>item 1</div>
+        <div>item 2</div>
+        <div>item 3</div>
+        <div>item 4</div>
+        <div>item 5</div>
+        <div>item 6</div>
+    </div>
+</body>
+</html>
