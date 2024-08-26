@@ -71,20 +71,11 @@
 // a.pop();
 // console.log(a);
 
-// g. FUNCTIONS
-
-// const add = (x, y) => {
-//     return x + y;
-// };
-// function add(x, y) { // this is another way we can define functions. There is a minute difference between the 2, but it's negligible for now.
-//     return x + y;
-// }
-// const add = (x, y) => x + y; // if our function is just 1 return statement, we can use this shorthand.
-// const result = add(5, 10);
-// console.log(result);
-
 // h. type conversion
 
+// console.log(Number("10"));
+// console.log(String(10));
+// console.log(Boolean(0), Boolean(1));
 
 // III. BASIC PROGRAMMING
 
@@ -152,3 +143,15 @@
 // 	console.log(index);
 //     console.log(arr[index]);
 // }
+
+// e. functions
+
+// const add = (x, y) => {
+//     return x + y;
+// };
+// function add(x, y) { // this is another way we can define functions. There is a minute difference between the 2, but it's negligible for now.
+//     return x + y;
+// }
+// const add = (x, y) => x + y; // if our function is just 1 return statement, we can use this shorthand.
+// const result = add(5, 10);
+// console.log(result);
