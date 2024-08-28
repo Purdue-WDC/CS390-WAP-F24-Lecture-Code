@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To Do List</title>
+    <style>
+      .remove-button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="input" placeholder="Enter a task name" />
+      <button onclick="addTask()">Add Task</button>
+    </div>
+    <ul id="tasks">
+    </ul>
+    <script>
+      function addTask() {
+        let input = document.getElementById('input');
+        let task = input.value;
+
+        let tasks = document.querySelector('#tasks');
+
+        let new_task = document.createElement('li');
+        new_task.innerText = task;
+
+        // tasks.appendChild(new_task);
+        // tasksData.push(task);
+        // showTasks();
+
+        insertTask(task);
+      }
+
+      var tasksData = [];
+
+      function showTasks() {
+        let tasks = document.querySelector('#tasks');
+        tasks.innerHTML = '';
+
+        for (let i = 0; i < tasksData.length; i++) {
+          let taskText = tasksData[i];
+
+          let new_task = document.createElement('li');
+          // new_task.innerText = tasksData[i];
+
+          let task_text = document.createTextNode(taskText);
+          let remove_button = document.createElement('button');
+
+          remove_button.innerText = 'X';
+          remove_button.className = 'remove-button';
+          remove_button.onclick = function () {
+            removeTask(taskText);
+          };
+
+          new_task.appendChild(task_text);
+          new_task.appendChild(remove_button);
+
+          tasks.appendChild(new_task);
+        }
+      }
+
+      function insertTask(task) {
+        // check null or undefined
+        if (task === null || task === undefined) {
+          return;
+        }
+
+        // only insert if task is not empty
+        if (task === '') {
+          return;
+        }
+
+        // only insert if task is not already in the list
+        if (tasksData.includes(task)) {
+          return;
+        }
+
+        tasksData.push(task);
+        showTasks();
+      }
+
+      function removeTask(task) {
+        let newTasksData = tasksData.filter((t) => t !== task);
+        tasksData = newTasksData;
+
+        showTasks();
+      }
+    </script>
+  </body>
+</html>
