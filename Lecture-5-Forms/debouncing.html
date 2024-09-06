@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Debouncing</title>
+    </head>
+    <body>
+        <button onclick="myClick()">Click Me!</button>
+        <script>
+            var timeout = null;
+
+            function actualHandler() {
+                // expensive operation
+                console.log("clicked");
+                console.log("another clicked");
+            }
+
+            function myClick() {
+                if (timeout !== null) {
+                    clearTimeout(timeout);
+                }
+
+                timeout = setTimeout(actualHandler, 1000);
+            }
+        </script>
+    </body>
+</html>

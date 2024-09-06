@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To Do List</title>
+    <style>
+      .remove-button {
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form onsubmit="return formSubmit()" id="myform">
+        <input type="text" id="input" name="name" placeholder="Enter a task name" required />
+        <br />
+        <textarea name="description"></textarea>
+        <br />
+
+        <input type="submit" value="Add Task" />
+      </form>
+
+      <!-- <input type="text" id="input" placeholder="Enter a task name" />
+      <button onclick="addTask()">Add Task</button> -->
+    </div>
+    <ul id="tasks">
+    </ul>
+    <script>
+      function formSubmit() {
+        let form = document.getElementById("myform");
+        let submitter = form.querySelector("input[type=submit]");
+        let formData = new FormData(form);
+
+        let taskName = formData.get("name");
+        let taskDesc = formData.get("description");
+
+        console.log(taskName, taskDesc);
+        insertTask(taskName, taskDesc);
+
+        return false;
+      }
+
+      function addTask() {
+        let input = document.getElementById('input');
+        let task = input.value;
+
+        let tasks = document.querySelector('#tasks');
+
+        let new_task = document.createElement('li');
+        new_task.innerText = task;
+
+        insertTask(task);
+      }
+
+      var tasksData = [];
+      var taskDescs = {};
+
+      function showTasks() {
+        let tasks = document.querySelector('#tasks');
+        tasks.innerHTML = '';
+
+        for (let i = 0; i < tasksData.length; i++) {
+          let taskText = tasksData[i];
+
+          let new_task = document.createElement('li');
+          // new_task.innerText = tasksData[i];
+
+          let task_text = document.createTextNode(taskText);
+          let task_desc_text = document.createTextNode(taskDescs[taskText]);
+          let remove_button = document.createElement('button');
+
+          remove_button.innerText = 'X';
+          remove_button.className = 'remove-button';
+          remove_button.onclick = function () {
+            removeTask(taskText);
+          };
+
+          new_task.appendChild(task_text);
+          new_task.appendChild(task_desc_text);
+          new_task.appendChild(remove_button);
+
+          tasks.appendChild(new_task);
+        }
+      }
+
+      function insertTask(task, description) {
+        // only insert if task is not already in the list
+        if (tasksData.includes(task)) {
+          return;
+        }
+
+        tasksData.push(task);
+        taskDescs[task] = description;
+        
+        showTasks();
+      }
+
+      function removeTask(task) {
+        let newTasksData = tasksData.filter((t) => t !== task);
+        tasksData = newTasksData;
+
+        showTasks();
+      }
+    </script>
+  </body>
+</html>

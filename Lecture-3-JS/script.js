@@ -56,10 +56,10 @@
 
 // i. user-defined objects
 
-// const person = {
-//     name: "John Doe",
-//     email: "jd@gmail.com"
-// };
+const person = {
+    name: "John Doe",
+    email: "jd@gmail.com"
+};
 // console.log(person.name); // you can access each value via object.key
 // person.name = "Sam"; // we can also change key's value via object.key = new_value
 // console.log(person);
@@ -75,14 +75,14 @@
 
 // console.log(Number("10"));
 // console.log(String(10));
-// console.log(Boolean(0), Boolean(1));
+// console.log(Boolean(0), Boolean(100));
 
 // III. BASIC PROGRAMMING
 
 // i. blocks and scoping
 
 // {
-//     var x = 5;
+//     // let x = 5;
 // }
 // console.log(x); // x is out of scope, so for const and let we get the error: ReferenceError: x is not defined.
                    // but var defies this scoping rule, meaning we do not run into the error.
@@ -124,6 +124,8 @@
 // while (i < 10) {
 //     console.log(i);
 //     i = i + 1; // shortand is: i += 1; or even i++;
+//     // i += 1;
+//     // i++;
 // }
 
 // b. regular for loops
@@ -152,6 +154,10 @@
 // function add(x, y) { // this is another way we can define functions. There is a minute difference between the 2, but it's negligible for now.
 //     return x + y;
 // }
-// const add = (x, y) => x + y; // if our function is just 1 return statement, we can use this shorthand.
-// const result = add(5, 10);
-// console.log(result);
+const add = (x, y) => {
+    x + y;
+} // if our function is just 1 return statement, we can use this shorthand.
+const result = add(5, 10);
+console.log(result);
+
+// console.log(console)
