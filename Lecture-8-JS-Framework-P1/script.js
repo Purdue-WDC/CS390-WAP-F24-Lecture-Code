@@ -1,5 +1,5 @@
 // We can import variables from other files.
-import { element, Component } from './framework';
+import { element, Component } from './framework.js';
 
 // This is an example component a developer might make.
 // The idea is that a developer would inherit/extend from our
