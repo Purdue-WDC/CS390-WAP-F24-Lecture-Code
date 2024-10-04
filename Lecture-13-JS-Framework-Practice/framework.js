@@ -1,5 +1,7 @@
+// Insert whatever logic you prefer.
+// Currently, if a and b are both objects, we assume a change occured.
+// This means that if we mutate an object, hasChanged will return true, and reactive dependencies will update.
 function hasChanged(a, b) {
-    // Insert whatever logic you prefer.
     if (typeof a === "object" && typeof b === "object") {
         return true;
     }
