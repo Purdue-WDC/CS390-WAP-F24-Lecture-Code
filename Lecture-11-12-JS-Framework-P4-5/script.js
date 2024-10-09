@@ -8,7 +8,11 @@ class Board extends Component {
             [".",".","O"],
             ["O",".","."],
             [".","X","."],
-        ])
+        ]);
+
+        this.winner = this.createDerived(() => {
+            return ".";
+        }, [this.board])
 
         setTimeout(() => {
             // Set the board to any value and observe the change!
@@ -16,8 +20,13 @@ class Board extends Component {
                 [".","O","O"],
                 ["O","X","X"],
                 ["X","X",".", "."],
+                ["."]
             ])
         }, 1000)
+    }
+
+    playTurn(rowIdx, colIdx) {
+        // some logic
     }
 
     render() {
@@ -25,15 +34,16 @@ class Board extends Component {
         const rowProps = { style: "display: flex" };
         const cellProps = { style: "border: 1px solid black;  width: 20px; height: 20px;" };
 
-        return this.element("div", containerProps, [
-            this.map(this.board, {}, function(row) {
-                return this.element("div", rowProps, [
-                    this.map(row, {}, function(cell) {
-                        const isOccupied = this.createDerived(() => cell.value !== ".", [cell]);
+        const play_turn_binded = this.playTurn.bind(this);
 
-                        return this.element("div", cellProps, [
-                            this.condition(isOccupied, {}, function() {
-                                return this.element("div", { textContent: cell })
+        return this.div(containerProps, [
+            this.map(this.board, function(row, rowIdx) {
+                return this.div(rowProps, [
+                    this.map(row, {}, function(cell, colIdx) {
+                        return this.div(cellProps, [
+                            this.div({
+                                textContent: cell,
+                                onclick: () => play_turn_binded(rowIdx, colIdx)
                             })
                         ]);
                     })

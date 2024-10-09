@@ -1,5 +1,8 @@
 function hasChanged(a, b) {
     // Insert whatever logic you prefer.
+    if (typeof a === "object" && typeof b === "object") {
+        return true;
+    }
     return a !== b;
 }
 
@@ -258,6 +261,10 @@ export class Component {
         el.append(...children);
         return el;
     };
+
+    div(props = {}, children = []) {
+        return this.element("div", props, children)
+    }
 
     render() {
         return this.element("div");
