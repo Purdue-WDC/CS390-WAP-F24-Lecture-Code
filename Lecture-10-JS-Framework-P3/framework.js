@@ -45,32 +45,32 @@ class Derived {
 
 // Example use of reactive objects.
 
-const counter = new State(0);
+// const counter = new State(0);
 
-const double_counter = new Derived(() => {
-    return counter.value * 2;
-}, [counter]);
+// const double_counter = new Derived(() => {
+//     return counter.value * 2;
+// }, [counter]);
 
-new Effect(() => {
-    console.log(counter.value);
-}, [counter]);
+// new Effect(() => {
+//     console.log(counter.value);
+// }, [counter]);
 
-new Effect(() => {
-    console.log(double_counter.value);
-}, [double_counter]);
+// new Effect(() => {
+//     console.log(double_counter.value);
+// }, [double_counter]);
 
-setTimeout(() => {
-    counter.setValue(counter.value + 1);
+// setTimeout(() => {
+//     counter.setValue(counter.value + 1);
 
-    setTimeout(() => {
-        counter.setValue(counter.value + 1);
-    }, 1000);
-}, 1000);
+//     setTimeout(() => {
+//         counter.setValue(counter.value + 1);
+//     }, 1000);
+// }, 1000);
 
 export class Component {
     constructor(props = {}) {
         this.props = props;
-        this.anchor = element("div", { stlye: "display: none" });
+        this.anchor = element("div", { style: "display: none" });
         this.childInsts = [];
         this.rootEl = undefined;
 
@@ -89,8 +89,8 @@ export class Component {
         return newState;
     }
 
-    createEffect(effectFn) {
-        const newEffect = new Effect(effectFn);
+    createEffect(effectFn, dependencies) {
+        const newEffect = new Effect(effectFn, dependencies);
         this.effects.push(newEffect);
     }
 
