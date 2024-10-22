@@ -1,12 +1,9 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import GravitySim from './GravitySim';
 import "./App.css"
 
 function Home() {
   return <div>Home Page</div>;
-}
-
-function About() {
-  return <div>About Page</div>;
 }
 
 function Navbar() {
@@ -26,7 +23,7 @@ function Navbar() {
         gap: "8px"
       }}>
         <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/gravity-sim">Gravity Sim</Link>
       </div>
     </div>
   );
@@ -39,7 +36,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
+        <Route path="/gravity-sim" element={<GravitySim/>}/>
       </Routes>
     </BrowserRouter>
   )
