@@ -1,0 +1,22 @@
+#frame {
+    width: 100%;
+    height: 60vh;
+    border: 2px solid blue;
+    margin-top: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet > .planetName {
+    color: white;
+    pointer-events: none;
+}
