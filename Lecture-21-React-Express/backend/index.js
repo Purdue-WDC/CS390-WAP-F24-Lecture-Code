@@ -1,11 +1,8 @@
 // Because this app is not ran in the browser, we need to use CommonJS (Node.js) syntax.
 // For imports, this means using require instead of import.
 const express = require('express');
-const cors = require('cors');
 
 const app = express();
-
-app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Hello from Express!');
