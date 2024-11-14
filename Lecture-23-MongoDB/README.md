@@ -10,7 +10,7 @@ In order to set this up, you need to:
 7. Click the "Done" button.
 8. Run `npm i` in this directory.
 9. Install nodemon via `npm i -g nodemon`.
-10. Run `nodemon db-examples.js` in this directory.
+10. Run `nodemon db-basics.js` in this directory.
 
 Note: If you want to access your database outside of your current network, go to the "Network Access" tab in MongoDB Atlas, click "+ADD IP ADDRESS", click "ALLOW ACCESS FROM ANYWHERE", then hit "Confirm".
 
